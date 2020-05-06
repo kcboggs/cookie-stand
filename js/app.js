@@ -69,9 +69,9 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm'];
 // Tokyo location
 var tokyo = {
   name: 'tokyoStore',
-  minCustomersEachHour: 23,
-  maxCustomersEachHour: 65,
-  averageCookiesSoldPerCustomer: 6.3,
+  minCustomersEachHour: 3,
+  maxCustomersEachHour: 24,
+  averageCookiesSoldPerCustomer: 1.2,
   customersEachHour: [],
   cookiesSoldEachHour: [],
   totalCookiesForTheDay: 0,
@@ -127,9 +127,9 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm'];
 //  Dubai location
 var dubai = {
   name: 'dubaiStore',
-  minCustomersEachHour: 23,
-  maxCustomersEachHour: 65,
-  averageCookiesSoldPerCustomer: 6.3,
+  minCustomersEachHour: 11,
+  maxCustomersEachHour: 38,
+  averageCookiesSoldPerCustomer: 3.7,
   customersEachHour: [],
   cookiesSoldEachHour: [],
   totalCookiesForTheDay: 0,
@@ -178,4 +178,140 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min; 
   //The maximum and minimum are inclusive 
 }
+
+// Paris location
+var paris = {
+  name: 'parisStore',
+  minCustomersEachHour: 20,
+  maxCustomersEachHour: 38,
+  averageCookiesSoldPerCustomer: 2.3,
+  customersEachHour: [],
+  cookiesSoldEachHour: [],
+  totalCookiesForTheDay: 0,
+
+  // calculate customers each hour and populate the array
+  calcCustomerEachHour: function(){
+    
+    for (var i=0; i<hours.length; i++){
+      var customersThisHours = getRandomNumber(this.minCustomersEachHour, this.maxCustomersEachHour);
+      this.maxCustomersEachHour.push(customersThisHours);
+    }
+  
+  // this loop will multiply the customers by the average cookies each customer buys 
+    for (var i=0; i<hours.length; i++) {
+      var cookiesSoldEachHour = Math.ceil(this.customersEachHour[i] * this.averageCookiesSoldEachHour);
+      this.cookiesSoldEachHour.push(cookiesSoldEachHour);
+      this.totalCookiesForTheDay = this.totalCookiesForTheDay + cookiesSoldEachHour;
+    }
+  }
+  
+  // this will render the total cookies for the day to the DOM, the name of the store and the the cookies sold each hour
+  render: function(){
+    paris.calcCustomersEachHour();
+    paris.calcCookiesSoldEachHour();
+    var parisElement = document.getElementById('seattle');
+    var listItem = document.createElement('li');
+    listItem.textContent = this.name;
+    parisElement.appendChild(listItem);
+
+      for(var i=0;i<hours.length; i++){
+      listItem = document.createElement('li');
+      listItem.textContent = this.cookiesSoldEachHour[i];
+      parisElement.appendChild(listItem);
+    }
+      listItem = document.createElement('li');
+      listItem.textContent = this.totalCookiesForTheDay;
+      parisElement.appendChild(listItem);
+  }
+}
+paris.render();
+
+// I got this from MDN Math.random
+function getRandomNumber(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; 
+  //The maximum and minimum are inclusive 
+}
+
+// Lima location
+var lima = {
+  name: 'limaStore',
+  minCustomersEachHour: 2,
+  maxCustomersEachHour: 16,
+  averageCookiesSoldPerCustomer: 4.6,
+  customersEachHour: [],
+  cookiesSoldEachHour: [],
+  totalCookiesForTheDay: 0,
+
+  // calculate customers each hour and populate the array
+  calcCustomerEachHour: function(){
+    
+    for (var i=0; i<hours.length; i++){
+      var customersThisHours = getRandomNumber(this.minCustomersEachHour, this.maxCustomersEachHour);
+      this.maxCustomersEachHour.push(customersThisHours);
+    }
+  
+  // this loop will multiply the customers by the average cookies each customer buys 
+    for (var i=0; i<hours.length; i++) {
+      var cookiesSoldEachHour = Math.ceil(this.customersEachHour[i] * this.averageCookiesSoldEachHour);
+      this.cookiesSoldEachHour.push(cookiesSoldEachHour);
+      this.totalCookiesForTheDay = this.totalCookiesForTheDay + cookiesSoldEachHour;
+    }
+  }
+  
+  // this will render the total cookies for the day to the DOM, the name of the store and the the cookies sold each hour
+  render: function(){
+    lima.calcCustomersEachHour();
+    lima.calcCookiesSoldEachHour();
+    var limaElement = document.getElementById('seattle');
+    var listItem = document.createElement('li');
+    listItem.textContent = this.name;
+    limaElement.appendChild(listItem);
+
+      for(var i=0;i<hours.length; i++){
+      listItem = document.createElement('li');
+      listItem.textContent = this.cookiesSoldEachHour[i];
+      limaElement.appendChild(listItem);
+    }
+      listItem = document.createElement('li');
+      listItem.textContent = this.totalCookiesForTheDay;
+      limaElement.appendChild(listItem);
+  }
+}
+lima.render();
+
+// I got this from MDN Math.random
+function getRandomNumber(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; 
+  //The maximum and minimum are inclusive 
+}
+
+var parentElement =document.getElementById('table');
+
+// Location
+var tableRow = document.createElement('tr');
+var tableHeader = document.createElement('th');
+tableHeader.textContent = 'Location';
+
+// Min customer
+tableHeader = document.createElement('th');
+tableHeader.textContent = 'Min/Cust';
+tableRow.appendChild(tableHeader);
+
+// Max customer
+tableHeader = document.createElement('th');
+tableHeader.textContent = 'Max/Cust';
+tableRow.appendChild(tableHeader);
+
+// Avg cookie sale
+tableHeader = document.createElement('th');
+tableHeader.textContent = 'Avg Cookie Sale';
+tableRow.appendChild(tableHeader);
+
+
+parentElement.appendChild(tableRow);
+tableRow.appendChild(tableHeader);
 
