@@ -1,11 +1,36 @@
-h1{
+header{
   font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: xx-large;
   text-align: left;
 } 
-
-h2{
+ 
+h1{
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: medium;
+}
+
+table{
+  width: 600px;
+  border-spacing: 5px;
+  
+}
+
+th{
+  text-align: left;
+}
+
+table, th, td{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+th, td{
+  padding: 10px;
+}
+
+tr:nth-child(even){
+  background-color: gray;
 }
 
 body{
@@ -41,11 +66,15 @@ body{
   transition: 0.4s;
 }
 
-p{
+p, ol, ul{
   font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: medium;
+  text-align: left;
 }
 
 h2{
   text-align: right;
 }
+
 
