@@ -2,7 +2,7 @@
 
 // get parent element from DOM
   // create element
-  // apply text content
+  // apply text 
   // append it
 
 // this is my global variable
@@ -32,7 +32,7 @@ var seattle = {
       this.cookiesSoldEachHour.push(cookiesSoldEachHour);
       this.totalCookiesForTheDay = this.totalCookiesForTheDay + cookiesSoldEachHour;
     }
-  }
+  },
   
   // this will render the total cookies for the day to the DOM, the name of the store and the the cookies sold each hour
   render: function(){
@@ -90,7 +90,7 @@ var tokyo = {
       this.cookiesSoldEachHour.push(cookiesSoldEachHour);
       this.totalCookiesForTheDay = this.totalCookiesForTheDay + cookiesSoldEachHour;
     }
-  }
+  },
   
   // this will render the total cookies for the day to the DOM, the name of the store and the the cookies sold each hour
   render: function(){
@@ -148,7 +148,7 @@ var dubai = {
       this.cookiesSoldEachHour.push(cookiesSoldEachHour);
       this.totalCookiesForTheDay = this.totalCookiesForTheDay + cookiesSoldEachHour;
     }
-  }
+  },
   
   // this will render the total cookies for the day to the DOM, the name of the store and the the cookies sold each hour
   render: function(){
@@ -179,6 +179,9 @@ function getRandomNumber(min, max) {
   //The maximum and minimum are inclusive 
 }
 
+// this is my global variable
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm'];
+
 // Paris location
 var paris = {
   name: 'parisStore',
@@ -203,7 +206,7 @@ var paris = {
       this.cookiesSoldEachHour.push(cookiesSoldEachHour);
       this.totalCookiesForTheDay = this.totalCookiesForTheDay + cookiesSoldEachHour;
     }
-  }
+  },
   
   // this will render the total cookies for the day to the DOM, the name of the store and the the cookies sold each hour
   render: function(){
@@ -234,6 +237,9 @@ function getRandomNumber(min, max) {
   //The maximum and minimum are inclusive 
 }
 
+// this is my global variable
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm'];
+
 // Lima location
 var lima = {
   name: 'limaStore',
@@ -258,7 +264,7 @@ var lima = {
       this.cookiesSoldEachHour.push(cookiesSoldEachHour);
       this.totalCookiesForTheDay = this.totalCookiesForTheDay + cookiesSoldEachHour;
     }
-  }
+  },
   
   // this will render the total cookies for the day to the DOM, the name of the store and the the cookies sold each hour
   render: function(){
@@ -289,29 +295,31 @@ function getRandomNumber(min, max) {
   //The maximum and minimum are inclusive 
 }
 
-var parentElement =document.getElementById('table');
+  var parentElement =document.getElementById('table');
 
-// Location
-var tableRow = document.createElement('tr');
-var tableHeader = document.createElement('th');
-tableHeader.textContent = 'Location';
+  // Location
+  var tableRow = document.createElement('tr');
+  var tableHeader = document.createElement('th');
+  tableHeader.textContent = 'Location';
+ 
+  for(var i=0; i<array.length; i++){
 
-// Min customer
-tableHeader = document.createElement('th');
-tableHeader.textContent = 'Min/Cust';
-tableRow.appendChild(tableHeader);
+  // Min customer
+  tableHeader = document.createElement('th');
+  tableHeader.textContent = 'Min/Cust';
+  tableRow.appendChild(tableHeader);
 
-// Max customer
-tableHeader = document.createElement('th');
-tableHeader.textContent = 'Max/Cust';
-tableRow.appendChild(tableHeader);
+  // Max customer
+  tableHeader = document.createElement('th');
+  tableHeader.textContent = 'Max/Cust';
+  tableRow.appendChild(tableHeader);
 
-// Avg cookie sale
-tableHeader = document.createElement('th');
-tableHeader.textContent = 'Avg Cookie Sale';
-tableRow.appendChild(tableHeader);
+  // Avg cookie sale
+  tableHeader = document.createElement('th');
+  tableHeader.textContent = 'Avg Cookie Sale';
+  tableRow.appendChild(tableHeader);
 
 
-parentElement.appendChild(tableRow);
-tableRow.appendChild(tableHeader);
+  parentElement.appendChild(tableRow);
+  }
 
