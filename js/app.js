@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 'use strict';
 
 // global variable
@@ -45,10 +46,36 @@ Stores.prototype.cookiesSoldForTheDay = function(){
   }
 };
 
+Stores.prototype.render = function(){
+  this.totalCookiesSoldForTheDay();
+  var parentElement =document.getElementById('table');
+  var tableRow =document.createElement('tr');
+  var tableHeader =document.createElement('th');
+  tableHeader.textContent =this.name;
+  tableRow.appendChild(tableHeader);
+
+  for(var i=0; i<this.cookiesSoldEachHour.length; i++){
+    var tableData = document.createElement('td');
+    tableData.textContent = this.cookiesSoldEachHour[i];
+    tableRow.appendChild(tableData);
+  }
+    tableData = document.createElement('td');
+    tableData.textContent = this.totalCookiesForTheDay;
+    tableRow.appendChild(tableRow);
+
+    parentElement.appendChild(tableRow);
+};
+
 // helper function to generate a random number
 function getRandomNumber(min, max){
   return Math.floor(Math.random() * (max-min +1)) + min;
 }
+
+seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
 
 seattle.calCookiesSoldEachHour();
 tokyo.calCookiesSoldEachHour();
