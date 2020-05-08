@@ -9,10 +9,13 @@ h1{
   font-size: medium;
 }
 
-table{
+h2{
+  text-align: right;
+}
+
+.table{
   width: 600px;
   border-spacing: 5px;
-  
 }
 
 th{
@@ -23,6 +26,7 @@ table, th, td{
   font-family: Georgia, 'Times New Roman', Times, serif;
   border: 1px solid #000;
   border-collapse: collapse;
+  margin: 0 auto;
 }
 
 th, td{
@@ -66,15 +70,9 @@ body{
   transition: 0.4s;
 }
 
-p, ol, ul{
+ol, ul{
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
   font-size: medium;
   text-align: left;
 }
-
-h2{
-  text-align: right;
-}
-
-
